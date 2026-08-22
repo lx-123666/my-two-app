@@ -1,12 +1,35 @@
-"use client"
-
-import { useTheme } from "./Theme"
+'use client'
+import Link from 'next/link'
+import { Separator } from '@/components/ui/separator'
+import { Title, MenuList } from '@/lib/constants'
+import { Fragment } from 'react'
 
 export default function Header() {
-  const value = useTheme()
   return (
-    <div>
-      header component { value }
+    <div className="h-16 px-10 border-b bg-white">
+      <div className="container flex items-center justify-between h-full">
+        <h1 className="text-2xl">
+          <Link href="/">{Title}</Link>
+        </h1>
+
+        {/* <div className="flex justify-end space-x-4 text-sm ">
+          
+          <Link href="/search">Search</Link>
+          <Separator orientation="vertical" />
+          <Link href="/account">Account</Link>
+          <Separator orientation="vertical" />
+          <Link href="/cart">Cart</Link>
+        </div> */}
+        <div className="flex justify-end space-x-4 text-sm h-1/3">
+          {MenuList.map((item, i) => (
+            <Fragment key={item.text}>
+              {i !== 0 && <Separator orientation="vertical" />}
+              <Link href={item.href}>{item.text}</Link>
+            </Fragment>
+          ))}
+          {/* { cartList.length ? '（' + cartList.length + '）' : '' } */}
+        </div>
+      </div>
     </div>
   )
 }
