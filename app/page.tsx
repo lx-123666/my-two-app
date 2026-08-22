@@ -7,7 +7,7 @@ export default function Page() {
   // const [randomId] = useState(() => Math.random());
   return (
     <div>
-      <h2>hello page 09</h2>
+      <h2>hello page 09999</h2>
       {/* <p>The random number is: {randomId}</p> */}
     </div>
   )
